@@ -2,11 +2,11 @@ using System;
 
 public class StartScreen : Window
 {
-    public event Action Start;
+    public event Action StartButtonPressed;
 
     protected override void OnButtonClick()
     {
-        Start?.Invoke();
+        StartButtonPressed?.Invoke();
         Close();
     }
 }

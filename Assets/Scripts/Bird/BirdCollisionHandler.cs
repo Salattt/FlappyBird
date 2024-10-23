@@ -6,7 +6,7 @@ public class BirdCollisionHandler : MonoBehaviour
 {
     private CircleCollider2D _circleCollider;
 
-    public event Action CollisionEnter;
+    public event Action CollisionEntered;
 
     private void Awake()
     {
@@ -16,6 +16,6 @@ public class BirdCollisionHandler : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<IInteractable>(out _))
-            CollisionEnter?.Invoke();
+            CollisionEntered?.Invoke();
     }
 }

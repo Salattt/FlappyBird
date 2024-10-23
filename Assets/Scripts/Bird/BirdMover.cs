@@ -6,8 +6,6 @@ public class BirdMover : MonoBehaviour
     [SerializeField] private PlayerController _controller;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _speed;
-    [SerializeField] private float _minRotation;
-    [SerializeField] private float _maxRotation;
     [SerializeField] private Vector2 _centerOfMass;
 
     private Rigidbody2D _rigidbody;
@@ -22,17 +20,17 @@ public class BirdMover : MonoBehaviour
 
     private void OnEnable()
     {
-        _controller.Jump += OnJump;
+        _controller.JumpInvoked += OnJump;
     }
 
     private void OnDisable()
     {
-        _controller.Jump -= OnJump;
+        _controller.JumpInvoked -= OnJump;
     }
 
     private void Update()
     {
-        _transform.right = _rigidbody.velocity;
+        UpdateRotation();
     }
 
     public void TurnOn()
@@ -49,5 +47,10 @@ public class BirdMover : MonoBehaviour
     private void OnJump()
     {
         _rigidbody.AddForce(Vector2.up * _jumpForce,ForceMode2D.Impulse);
+    }
+
+    private void UpdateRotation()
+    {
+        _transform.right = _rigidbody.velocity;
     }
 }

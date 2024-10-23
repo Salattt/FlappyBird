@@ -3,10 +3,10 @@ using UnityEngine;
 
 public abstract class Controller : MonoBehaviour
 {
-    public event Action Attack;
+    public event Action AttackInvoked;
 
     protected void InvokeAttack()
     {
-        Attack?.Invoke();
+        AttackInvoked?.Invoke();
     }
 }

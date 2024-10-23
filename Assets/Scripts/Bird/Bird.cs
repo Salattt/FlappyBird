@@ -8,7 +8,7 @@ public class Bird : MonoBehaviour, IDamageable
     [SerializeField] private BirdCollisionHandler _collisionHandler;
     private Vector3 _startPosition;
 
-    public event Action Die;
+    public event Action Died;
 
     public Transform Transform {  get; private set; }
 
@@ -17,12 +17,12 @@ public class Bird : MonoBehaviour, IDamageable
         Transform = transform;
         _startPosition = transform.position;
 
-        _collisionHandler.CollisionEnter += TakeDamage; 
+        _collisionHandler.CollisionEntered += TakeDamage; 
     }
 
     private void OnDisable()
     {
-        _collisionHandler.CollisionEnter -= TakeDamage;
+        _collisionHandler.CollisionEntered -= TakeDamage;
     }
 
     public void TurnOn()
@@ -44,6 +44,6 @@ public class Bird : MonoBehaviour, IDamageable
 
     public void TakeDamage()
     {
-        Die?.Invoke();
+        Died?.Invoke();
     }
 }

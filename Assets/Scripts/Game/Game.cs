@@ -15,20 +15,20 @@ public class Game : MonoBehaviour
 
     private void OnEnable()
     {
-        _startScreen.Start += TurnOn;
-        _bird.Die += TurnOff;
-        _endScreen.Restart += ResetGame;
-        _endScreen.Restart += TurnOn;
+        _startScreen.StartButtonPressed += TurnOn;
+        _bird.Died += TurnOff;
+        _endScreen.RestartButtonPressed += ResetGame;
+        _endScreen.RestartButtonPressed += TurnOn;
 
         _startScreen.Open();
     }
 
     private void OnDisable()
     {
-        _startScreen.Start -= TurnOn;
-        _bird.Die -= TurnOff;
-        _endScreen.Restart -= ResetGame;
-        _endScreen.Restart -= TurnOn;
+        _startScreen.StartButtonPressed -= TurnOn;
+        _bird.Died -= TurnOff;
+        _endScreen.RestartButtonPressed -= ResetGame;
+        _endScreen.RestartButtonPressed -= TurnOn;
     }
 
     private void TurnOn()

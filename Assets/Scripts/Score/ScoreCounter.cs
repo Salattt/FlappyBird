@@ -7,8 +7,8 @@ public class ScoreCounter : MonoBehaviour
 
     public void OnEnemyDie(Enemy enemy)
     {
-        enemy.Die -= OnEnemyDie;
-        enemy.Despawn -= OnEnemyDespawn;
+        enemy.Died -= OnEnemyDie;
+        enemy.Despawned -= OnEnemyDespawn;
 
         _counter++;
 
@@ -17,8 +17,8 @@ public class ScoreCounter : MonoBehaviour
 
     public void OnEnemyDespawn(Enemy enemy)
     {
-        enemy.Despawn -= OnEnemyDespawn;
-        enemy.Die -= OnEnemyDie;
+        enemy.Despawned -= OnEnemyDespawn;
+        enemy.Died -= OnEnemyDie;
     }
 
     public void ResetComponent()

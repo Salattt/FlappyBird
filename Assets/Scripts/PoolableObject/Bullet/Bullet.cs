@@ -13,16 +13,6 @@ public class Bullet : PoolableObject
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    public override void OnReset()
-    {
-        InvokeRelease();
-    }
-
-    protected virtual void OnCollision(Collider2D collision) 
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out IDamageable damageable))
@@ -33,5 +23,20 @@ public class Bullet : PoolableObject
         _rigidbody.velocity = Vector3.zero;
 
         InvokeRelease();
+    }
+
+    public override void OnReset()
+    {
+        InvokeRelease();
+    }
+
+    public void SetVelocity(Vector2 velocity)
+    {
+        _rigidbody.velocity = velocity;
+    }
+
+    protected virtual void OnCollision(Collider2D collision) 
+    {
+        
     }
 }

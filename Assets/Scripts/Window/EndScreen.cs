@@ -2,11 +2,11 @@ using System;
 
 public class EndScreen : Window
 {
-    public event Action Restart;
+    public event Action RestartButtonPressed;
 
     protected override void OnButtonClick()
     {
-        Restart?.Invoke();
+        RestartButtonPressed?.Invoke();
         Close();
     }
 }

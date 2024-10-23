@@ -6,7 +6,7 @@ public class BirdTracker : MonoBehaviour
     [SerializeField] private float _xOffset;
     private Transform _transform;
 
-    private void OnEnable()
+    private void Awake()
     {
         _transform = transform;
     }

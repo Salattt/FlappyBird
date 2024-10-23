@@ -6,8 +6,8 @@ public class Enemy : PoolableObject, IDamageable, IInteractable
 {
     [SerializeField] private Shooter _shooter;
 
-    public event Action<Enemy> Die;
-    public event Action<Enemy> Despawn;
+    public event Action<Enemy> Died;
+    public event Action<Enemy> Despawned;
 
     public override void OnReset()
     {
@@ -21,14 +21,14 @@ public class Enemy : PoolableObject, IDamageable, IInteractable
 
     public void TakeDamage()
     {
-        Die?.Invoke(this);
+        Died?.Invoke(this);
 
         InvokeRelease();
     }
 
     public void InvokeDespawn()
     {
-        Despawn?.Invoke(this);
+        Despawned?.Invoke(this);
 
         InvokeRelease();
     }

@@ -5,7 +5,7 @@ public class PlayerController : Controller
 {
     private bool _isPlaying = false;
 
-    public event Action Jump;
+    public event Action JumpInvoked;
 
     private void Update()
     {
@@ -27,7 +27,7 @@ public class PlayerController : Controller
         if (_isPlaying)
         {
             if (Input.GetKeyDown(KeyCode.Space))
-                Jump?.Invoke();
+                JumpInvoked?.Invoke();
 
             if (Input.GetKeyDown(KeyCode.E))
                 InvokeAttack();

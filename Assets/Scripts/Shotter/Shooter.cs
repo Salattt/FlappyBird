@@ -9,7 +9,7 @@ public class Shooter : MonoBehaviour
 
     private void OnEnable()
     {
-        _controller.Attack += Shoot;
+        _controller.AttackInvoked += Shoot;
     }
 
     public void GetPool(BulletPool bulletPool)
@@ -19,9 +19,9 @@ public class Shooter : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bullet = _bulletPool.Get().gameObject; 
+        Bullet bullet = _bulletPool.Get(); 
 
-        bullet.transform.position = _shootPoint.position;
-        bullet.GetComponent<Rigidbody2D>().velocity = _shootPoint.right * _bulletSpeed;
+        bullet.Transform.position = _shootPoint.position;
+        bullet.SetVelocity(_shootPoint.right * _bulletSpeed);
     }
 }

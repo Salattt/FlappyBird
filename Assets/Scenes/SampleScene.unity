@@ -2256,6 +2256,14 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3623940966668661721, guid: 74f003abff5ab434e996ab0278c70850, type: 3}
+      propertyPath: _maxRotation
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623940966668661721, guid: 74f003abff5ab434e996ab0278c70850, type: 3}
+      propertyPath: _minRotation
+      value: -75
+      objectReference: {fileID: 0}
     - target: {fileID: 3623940966668661723, guid: 74f003abff5ab434e996ab0278c70850, type: 3}
       propertyPath: _collisionHandler
       value: 

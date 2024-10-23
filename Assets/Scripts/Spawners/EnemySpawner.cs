@@ -11,17 +11,6 @@ public class EnemySpawner : MonoBehaviour
     private bool _isWorking = false;
     private float _timer;
 
-    public void TurnOn()
-    {
-        _isWorking = true;
-        _timer = 0;
-    }
-
-    public void TurnOff()
-    {
-        _isWorking = false; 
-    }
-
     private void Update()
     {
         if (_isWorking)
@@ -32,6 +21,17 @@ public class EnemySpawner : MonoBehaviour
             _timer = 0;
             Spawn();
         }
+    }
+
+    public void TurnOn()
+    {
+        _isWorking = true;
+        _timer = 0;
+    }
+
+    public void TurnOff()
+    {
+        _isWorking = false; 
     }
 
     private void Spawn()
@@ -46,8 +46,8 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnedEnemy.transform.position = _spawnPoints[i].position;
 
-                spawnedEnemy.Die += _scoreCounter.OnEnemyDie;
-                spawnedEnemy.Despawn += _scoreCounter.OnEnemyDespawn;
+                spawnedEnemy.Died += _scoreCounter.OnEnemyDie;
+                spawnedEnemy.Despawned += _scoreCounter.OnEnemyDespawn;
 
             }
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class PoolableObject : MonoBehaviour
 {
-    public event Action<PoolableObject> Release;
+    public event Action<PoolableObject> Released;
 
     public Transform Transform {  get; private set; }
 
@@ -16,6 +16,6 @@ public abstract class PoolableObject : MonoBehaviour
 
     protected void InvokeRelease()
     {
-        Release?.Invoke((PoolableObject)this);
+        Released?.Invoke((PoolableObject)this);
     }
 }

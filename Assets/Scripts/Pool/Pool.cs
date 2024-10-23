@@ -31,7 +31,7 @@ public class Pool<T> : MonoBehaviour where T : PoolableObject
 
         poolableObject.gameObject.SetActive(true);
 
-        poolableObject.Release += OnRelease;
+        poolableObject.Released += OnRelease;
 
         return poolableObject;
     }
@@ -47,7 +47,7 @@ public class Pool<T> : MonoBehaviour where T : PoolableObject
 
     private void OnRelease(PoolableObject poolableObject)
     {
-        poolableObject.Release -= OnRelease;
+        poolableObject.Released -= OnRelease;
 
         poolableObject.Transform.position = _transform.position;
 
